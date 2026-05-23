@@ -1,9 +1,10 @@
 import { createContext, useContext, useState, useEffect, useRef } from "react"
+import { generatePuzzle } from "../utils/generatePuzzle"
 
 type Cell = {
-  value: number | null   
-  isPreset: boolean     
-  isError: boolean      
+  value: number | null
+  isPreset: boolean
+  isError: boolean
 }
 
 type GameContextType = {
@@ -16,14 +17,14 @@ type GameContextType = {
   resetGame: () => void
 }
 
-const INITIAL_PUZZLE: (number | null)[][] = [
-  [1, null, null, 2, null, null],
-  [null, null, 2, null, null, 1],
-  [null, 1, null, null, 3, null],
-  [null, 3, null, null, 1, null],
-  [3, null, null, 1, null, null],
-  [null, null, 1, null, null, 3],
-]
+// const INITIAL_PUZZLE: (number | null)[][] = [
+//   [1, null, null, 2, null, null],
+//   [null, null, 2, null, null, 1],
+//   [null, 1, null, null, 3, null],
+//   [null, 3, null, null, 1, null],
+//   [3, null, null, 1, null, null],
+//   [null, null, 1, null, null, 3],
+// ]
 
 function buildBoard(puzzle: (number | null)[][]): Cell[][] {
   return puzzle.map(row =>
@@ -59,7 +60,7 @@ function hasConflict(board: Cell[][], row: number, col: number, value: number): 
 const GameContext = createContext<GameContextType | null>(null)
 
 export function GameProvider({ children }: { children: React.ReactNode }) {
-  const [board, setBoard] = useState<Cell[][]>(buildBoard(INITIAL_PUZZLE))
+  const [board, setBoard] = useState<Cell[][]>(buildBoard(generatePuzzle()))
   const [playerName, setPlayerName] = useState("")
   const [seconds, setSeconds] = useState(0)
   const [gameOver, setGameOver] = useState(false)
@@ -76,7 +77,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   }, [gameOver])
 
   function updateCell(row: number, col: number, value: number | null) {
-    
+
     if (value !== null && (value < 1 || value > 6)) return
 
     setBoard(prev => {
@@ -93,7 +94,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
   }
 
   function resetGame() {
-    setBoard(buildBoard(INITIAL_PUZZLE))
+    setBoard(buildBoard(generatePuzzle()))
     setSeconds(0)
     setGameOver(false)
   }

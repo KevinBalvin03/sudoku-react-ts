@@ -19,7 +19,7 @@ export default function ResultPage() {
   return (
     <div>
       <h1>¡Felicidades, {playerName}!</h1>
-      <p>Completaste el Mini Sudoku en {formatTime(seconds)}</p>
+      <p>Completaste el Sudoku en {formatTime(seconds)}</p>
       <button onClick={handlePlayAgain}>Jugar de nuevo</button>
     </div>
   )
