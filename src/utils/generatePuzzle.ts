@@ -1,4 +1,3 @@
-// Verifica si un número es válido en esa posición del tablero
 function isValid(board: (number | null)[][], row: number, col: number, num: number): boolean {
   for (let c = 0; c < 6; c++) {
     if (board[row][c] === num) return false
@@ -6,7 +5,7 @@ function isValid(board: (number | null)[][], row: number, col: number, num: numb
   for (let r = 0; r < 6; r++) {
     if (board[r][col] === num) return false
   }
-  // Revisar bloque 2x3
+
   const blockRow = Math.floor(row / 2) * 2
   const blockCol = Math.floor(col / 3) * 3
   for (let r = blockRow; r < blockRow + 2; r++) {
@@ -42,11 +41,9 @@ function generateSolvedBoard(): (number | null)[][] {
   return board
 }
 
-// Quita algunos números del tablero para crear el puzzle
 export function generatePuzzle(clues: number = 18): (number | null)[][] {
   const solved = generateSolvedBoard()
 
-  // Copiamos el tablero completo
   const puzzle = solved.map(row => [...row])
 
   const totalCells = 36
