@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useGame } from "../../context/GameContext"
+import "./ResultPage.css"
 
 export default function ResultPage() {
   const { playerName, seconds, resetGame } = useGame()
@@ -17,7 +18,7 @@ export default function ResultPage() {
   }
 
   return (
-    <div>
+    <div className="result-contenedor">
       <h1>¡Felicidades, {playerName}!</h1>
       <p>Completaste el Sudoku en {formatTime(seconds)}</p>
       <button onClick={handlePlayAgain}>Jugar de nuevo</button>

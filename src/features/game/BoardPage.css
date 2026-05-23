@@ -1,0 +1,61 @@
+.board-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-color: rgb(208, 212, 238);
+  padding: 40px;
+  border-radius: 16px;
+}
+
+.board-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.board-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.board-fila {
+  display: flex;
+  gap: 4px;
+}
+
+.board-celda {
+  width: 52px;
+  height: 52px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #1a1a2e;
+}
+
+.board-celda:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.celda-preset {
+  background-color: #e8f4fd;
+  color: #1976d2;
+}
+
+.celda-error {
+  background-color: #ffcccc;
+  color: #c62828;
+  border-color: #ef9a9a;
+}
+
+.board-botones {
+  display: flex;
+  gap: 12px;
+}
