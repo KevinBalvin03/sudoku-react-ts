@@ -17,3 +17,11 @@ CSS
 Autor
 Kevin Stiward Balvin Garcia
 Estudiante de Ingeniería — Proyecto universitario
+
+
+En el proximo Update: 
+- Login de usuarios con base de datos
+- Sistema de puntuaciones y ranking
+
+Refactor: 
+- Dificultad por niveles 
